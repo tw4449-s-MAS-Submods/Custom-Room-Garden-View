@@ -205,7 +205,7 @@ init 30 python:
     submod_background_garden_view = MASFilterableBackground(
         # ID
         "submod_background_garden_view",
-        "garden_view",
+        "Garden view",
 
         # mapping of filters to MASWeatherMaps
         image_map=tw_room_utils.ROOM_IMG_MAPS[tw_room_utils.BG_FLD_REDIRECT_MAP.get(
