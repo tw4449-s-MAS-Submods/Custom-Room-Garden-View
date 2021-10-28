@@ -13,7 +13,7 @@ This submod adds a garden view Spaceroom that changes with the seasons for you a
 
 2. Unzip and open the folder called 'Garden-View' (it should be in your 'Downloads' folder).
 
-3. From the Custom-Room-Furnished-Spaceroom-V1 folder, copy the 'game' and 'lib' folders into the main 
+3. From the Garden-View folder, copy the 'game' and 'lib' folders into the main 
    'Doki Doki Literature Club' folder (AKA, the folder where you see 'DDLC.exe').
    
 4. If you have 400+ affection: Launch MAS, and the room will be available. Monika will explain how to use it after a minute or so. 
