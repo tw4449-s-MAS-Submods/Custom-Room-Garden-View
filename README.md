@@ -27,15 +27,15 @@ And that's it! It's that simple.
 
 I have other rooms available! They can be found here:
 
--[Spaceroom v1](https://github.com/tw4449/Custom-Room-Furnished-Spaceroom-V1)
+-[Spaceroom v1](https://github.com/tw4449-s-MAS-Submods/Custom-Room-Furnished-Spaceroom-V1)
 
--[Spaceroom v2](https://github.com/tw4449/Custom-Room-Furnished-Spaceroom-V2)
+-[Spaceroom v2](https://github.com/tw4449-s-MAS-Submods/Custom-Room-Furnished-Spaceroom-V2)
 
--[Spaceroom v3](https://github.com/tw4449/Custom-Room-Furnished-Spaceroom-V3)
+-[Spaceroom v3](https://github.com/tw4449-s-MAS-Submods/Custom-Room-Furnished-Spaceroom-V3)
 
--[Den](https://github.com/tw4449/Custom-Room-Den)
+-[Den](https://github.com/tw4449-s-MAS-Submods/Custom-Room-Den)
 
--[Kitchen](https://github.com/tw4449/Custom-Room-Kitchen)
+-[Kitchen](https://github.com/tw4449-s-MAS-Submods/Custom-Room-Kitchen)
 
 ## Troubleshooting:
 
@@ -53,9 +53,9 @@ I have other rooms available! They can be found here:
 
 ## Other info:
 
-The game will notify you when an update to the submod is available, thanks to submod plugin we
-incorporated courtesy of Booplicate (more info below). This plugin both notifies you of updates, and helps
-you download and install them.
+-The game will notify you when an update to the submod is available, thanks to submod plugin we
+   incorporated courtesy of Booplicate (more info below). This plugin both notifies you of updates, and helps
+   you download and install them.
 
 ## Updating
 
@@ -77,4 +77,4 @@ an amazing feature and tool for submod creators.
 
 #### ~ tw4449
 
-[BACK TO Custom-Room-Selection-Pack-Main-Repository](https://github.com/tw4449/tw4449-Custom-Room-Selection-Pack-Main-Repository)
+[BACK TO Custom-Room-Selection-Pack](https://github.com/tw4449-s-MAS-Submods/tw4449-Custom-Room-Selection-Pack-Main-Repository)
