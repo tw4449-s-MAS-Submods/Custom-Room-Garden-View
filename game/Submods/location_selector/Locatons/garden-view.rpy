@@ -260,6 +260,10 @@ init 30 python:
         exit_pp=store.mas_background._garden_view_room_exit,
     )
 
+    #The dynamic nature of this bg doesn't like the way the filtermap is handled, so we need to populate the filtermanager properly
+    submod_background_garden_view._flt_man._day_filters = {"sunset": None, "day": None}
+    submod_background_garden_view._flt_man._night_filters = {"night": None}
+
 init -2 python in mas_background:
     def _garden_view_room_entry(_old, **kwargs):
         """
