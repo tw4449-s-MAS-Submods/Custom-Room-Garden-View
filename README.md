@@ -1,6 +1,6 @@
 ![V1](https://cdn.discordapp.com/attachments/732733575715094570/903058736216686662/screenshot0368.png)
 # Garden-View
-This submod adds a garden view Spaceroom that changes with the seasons for you and Monika.
+This submod adds a new room with a garden view that changes with the seasons for you and Monika.
 
 #### Hi! First of all: thank you for wanting to use my work! It means a lot that I can do something to make people's time with their Monika that much better.
 
