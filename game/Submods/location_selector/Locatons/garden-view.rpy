@@ -29,15 +29,10 @@ init 20 python in tw_room_utils:
         4: "winter"
     }
 
-    #Redirect map since spring and summer are using the same images
-    BG_FLD_REDIRECT_MAP = {
-        "spring": "spring-summer",
-        "summer": "spring-summer"
-    }
-
     #Room folders for each of the seasonal groups (weather masks)
     ROOM_FOLDERS = [
-        "spring-summer",
+        "spring",
+        "summer",
         "fall",
         "winter"
     ]
@@ -87,7 +82,7 @@ init 20 python in tw_room_utils:
             store.mas_weather_snow.img_tag = weath_img_tag_base + "snow_weather_fb"
             store.mas_weather_snow.ani_img_tag = weath_img_tag_base + "snow_weather"
 
-            store.mas_current_background.image_map = ROOM_IMG_MAPS[BG_FLD_REDIRECT_MAP.get(new_season, new_season)]
+            store.mas_current_background.image_map = ROOM_IMG_MAPS[new_season]
 
             #Finally, request a dissolve all to update everything
             store.mas_idle_mailbox.send_dissolve_all()
@@ -140,12 +135,14 @@ init 20 python in tw_room_utils:
         """
         Runs init code to generate images for the weather
         """
+        
         animated_weather = dict()
         static_weather = dict()
 
         #Iter over our precip types so we can init weather
         for weather in store.mas_weather.PRECIP_TYPES:
             for season in IND_SEASON_MAP.values():
+
                 #Build FPs for both the movie sprites and the fallback image sprites
                 movie_fp = "mod_assets/location/garden_view/zz_window/{0}/{1}".format(season, weather)
                 fallback_fp = "mod_assets/location/garden_view/zz_window/{0}/fallback/{1}".format(season, weather)
@@ -158,7 +155,14 @@ init 20 python in tw_room_utils:
                     static_weather.update({
                         "sunset": store.Image(fallback_fp + "-ss.png")
                     })
-
+                else:
+                    animated_weather.update({
+                        "sunset": store.Movie(play=movie_fp + ".webm", mask=None)
+                    })
+                    static_weather.update({
+                        "sunset": store.Image(fallback_fp + ".png")
+                    })
+                
                 #General day/night should be applied to all
                 animated_weather.update({
                     "day": store.Movie(play=movie_fp + ".webm", mask=None),
@@ -208,10 +212,7 @@ init 30 python:
         "Garden view",
 
         # mapping of filters to MASWeatherMaps
-        image_map=tw_room_utils.ROOM_IMG_MAPS[tw_room_utils.BG_FLD_REDIRECT_MAP.get(
-            tw_room_utils.IND_SEASON_MAP[store.mas_seasons._currentSeason()],
-            tw_room_utils.IND_SEASON_MAP[store.mas_seasons._currentSeason()]
-        )],
+        image_map=tw_room_utils.ROOM_IMG_MAPS[tw_room_utils.IND_SEASON_MAP[store.mas_seasons._currentSeason()]],
 
         filter_man=MASBackgroundFilterManager(
             MASBackgroundFilterChunk(
