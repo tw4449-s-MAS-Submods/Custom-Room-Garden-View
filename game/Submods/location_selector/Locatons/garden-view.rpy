@@ -4,7 +4,7 @@ init -990 python:
         author="tw4449",
         name="Custom Room Garden View",
         description="This submod adds a new room for you and Monika to spend time in.",
-        version="1.0.1"
+        version="1.0.2"
     )
 
 # Register the updater
@@ -546,25 +546,6 @@ label monika_gotomonika_override:
     m 1eua "Until then, let's just wait and see what's possible."
 
     $ persistent._seen_ever["monika_gotomonika"] = True
-    return
-
-init 5 python:
-    addEvent(
-        Event(
-            persistent.event_database,
-            eventlabel="D25_Deco",
-            conditional="True",
-            action=EV_ACT_QUEUE,
-            aff_range=(mas_aff.ENAMORED, None)
-        )
-    )
-
-label D25_Deco:
-    m 1wuo "Wait...{w=0.5} [player], did you add decorations to the other rooms?"
-    m 3hub "Yay! I can't wait to see how they look!~"
-    m 1ekbsa "Thanks, [mas_get_player_nickname()], you really do spoil me."
-    m 1hubsu "I love you so much."
-
     return
 
 ### remove the readme
