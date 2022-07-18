@@ -4,7 +4,7 @@ init -990 python:
         author="tw4449",
         name="Custom Room Garden View",
         description="This submod adds a new room for you and Monika to spend time in.",
-        version="1.0.3"
+        version="1.0.4"
     )
 
 # Register the updater
