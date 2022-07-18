@@ -137,7 +137,7 @@ init 20 python in tw_room_utils:
         """
         Runs init code to generate images for the weather
         """
-        
+
         animated_weather = dict()
         static_weather = dict()
 
@@ -164,7 +164,7 @@ init 20 python in tw_room_utils:
                     static_weather.update({
                         "sunset": store.Image(fallback_fp + ".png")
                     })
-                
+
                 #General day/night should be applied to all
                 animated_weather.update({
                     "day": store.Movie(play=movie_fp + ".webm", mask=None),
@@ -266,6 +266,10 @@ init 30 python:
     #The dynamic nature of this bg doesn't like the way the filtermap is handled, so we need to populate the filtermanager properly
     submod_background_garden_view._flt_man._day_filters = {"sunset": None, "day": None}
     submod_background_garden_view._flt_man._night_filters = {"night": None}
+
+    #For nou, we need to force a rescan for images so we don't keyerror
+    #TODO: REMOVE AFTER NEXT MAS RELEASE
+    store.mas_cardgames._m1_zz_cardgames__scanDeskSprites()
 
 init -2 python in mas_background:
     def _garden_view_room_entry(_old, **kwargs):
@@ -474,7 +478,7 @@ label monika_players_control_override:
 
     $ persistent._seen_ever["monika_players_control"] = True
     return
-    
+
 
 init 1 python:
     config.label_overrides["monika_gotomonika"] = "monika_gotomonika_override"
