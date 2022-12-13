@@ -4,7 +4,7 @@ init -990 python:
         author="tw4449",
         name="Custom Room Garden View",
         description="This submod adds a new room for you and Monika to spend time in.",
-        version="1.0.5"
+        version="1.0.6"
     )
 
 # Register the updater
@@ -187,10 +187,78 @@ image garden_view_o31_deco = ConditionSwitch(
     "True", "mod_assets/location/garden_view/deco/o31/deco-n.png"
 )
 
-image garden_view_d25_deco = ConditionSwitch(
+image GV__d25_deco = ConditionSwitch(
     "mas_current_background.isFltDay()", "mod_assets/location/garden_view/deco/d25/deco.png",
     "True", "mod_assets/location/garden_view/deco/d25/deco-n.png"
 )
+
+
+    #0 gifts is blank
+#1-3 gifts gets you part 1
+#4 gifts gets you part 2
+#5+ gifts get you part 3
+image GV_mas_d25_gifts = ConditionSwitch(
+    "len(persistent._mas_d25_gifts_given) == 0", "mod_assets/location/garden_view/deco/d25/GV_gifts_0.png",
+    "0 < len(persistent._mas_d25_gifts_given) < 3", "GV_mas_d25_gifts_1",
+    "3 <= len(persistent._mas_d25_gifts_given) <= 4", "GV_mas_d25_gifts_2",
+    "True", "GV_mas_d25_gifts_3"
+)
+
+image GV_mas_d25_gifts_1 = MASFilterSwitch(
+    "mod_assets/location/garden_view/deco/d25/GV_gifts_1.png"
+)
+
+image GV_mas_d25_gifts_2 = MASFilterSwitch(
+    "mod_assets/location/garden_view/deco/d25/GV_gifts_2.png"
+)
+
+image GV_mas_d25_gifts_3 = MASFilterSwitch(
+    "mod_assets/location/garden_view/deco/d25/GV_gifts_3.png"
+)
+
+
+
+
+#image GV_mas_d25_tree = ConditionSwitch(
+#    "mas_isNightNow()", ConditionSwitch(
+#        "persistent._mas_disable_animations", "mod_assets/location/garden_view/deco/d25/GV_tree_lights_on_1.png",
+#        "not persistent._mas_disable_animations", "GV_mas_d25_night_tree_lights_atl"
+#    ),
+#    "True", MASFilterSwitch(
+#        "mod_assets/location/garden_view/deco/d25/GV_tree_lights_off.png"
+#    )
+#)
+
+#image GV_mas_d25_night_tree_lights_atl:
+#    block:
+#        "mod_assets/location/garden_view/deco/d25/GV_tree_lights_on_1.png"
+#        1.5
+#        "mod_assets/location/garden_view/deco/d25/GV_tree_lights_on_2.png"
+#        1.5
+#        "mod_assets/location/garden_view/deco/d25/GV_tree_lights_on_3.png"
+#        1.5
+#    repeat
+
+
+
+
+#image GV_mas_d25_lights = ConditionSwitch(
+#    "mas_isNightNow()", ConditionSwitch(
+#        "persistent._mas_disable_animations", "mod_assets/garden_view/deco/d25/GV_lights_on_1.png",
+#        "not persistent._mas_disable_animations", "GV_mas_d25_night_lights_atl"
+#    ),
+#    "True", MASFilterSwitch("mod_assets/location/garden_view/deco/d25/GV_lights_off.png")
+#)
+
+#image GV_mas_d25_night_lights_atl:
+#    block:
+#        "mod_assets/location/garden_view/deco/d25/GV_lights_on_1.png"
+#        0.5
+#        "mod_assets/location/garden_view/deco/d25/GV_lights_on_2.png"
+#        0.5
+#        "mod_assets/location/garden_view/deco/d25/GV_lights_on_3.png"
+#        0.5
+#    repeat
 
 init 501 python:
     MASImageTagDecoDefinition.register_img(
@@ -200,12 +268,34 @@ init 501 python:
         replace_tag="garden_view_o31_deco"
     )
 
+#    MASImageTagDecoDefinition.register_img(
+#        "mas_d25_tree",
+#        submod_background_garden_view.background_id,
+#        MASAdvancedDecoFrame(zorder=5),
+#        replace_tag="GV_mas_d25_tree"
+#    )
+
     MASImageTagDecoDefinition.register_img(
-        "mas_d25_tree",
+        "mas_d25_gifts",
         submod_background_garden_view.background_id,
-        MASAdvancedDecoFrame(zorder=5),
-        replace_tag="garden_view_d25_deco"
+        MASAdvancedDecoFrame(zorder=6),
+        replace_tag="GV_mas_d25_gifts"
     )
+
+#    MASImageTagDecoDefinition.register_img(
+#        "mas_d25_lights",
+#        submod_background_garden_view.background_id,
+#        MASAdvancedDecoFrame(zorder=5),
+#        replace_tag="GV_mas_d25_lights"
+#    )
+
+    MASImageTagDecoDefinition.register_img(
+        "mas_d25_garlands",
+        submod_background_garden_view.background_id,
+        MASAdvancedDecoFrame(zorder=4),
+        replace_tag="GV__d25_deco"
+    )
+
 
 init 30 python:
     submod_background_garden_view = MASFilterableBackground(
