@@ -244,7 +244,7 @@ image GV_mas_d25_gifts_3 = MASFilterSwitch(
 
 #image GV_mas_d25_lights = ConditionSwitch(
 #    "mas_isNightNow()", ConditionSwitch(
-#        "persistent._mas_disable_animations", "mod_assets/garden_view/deco/d25/GV_lights_on_1.png",
+#        "persistent._mas_disable_animations", "mod_assets/location/garden_view/deco/d25/GV_lights_on_1.png",
 #        "not persistent._mas_disable_animations", "GV_mas_d25_night_lights_atl"
 #    ),
 #    "True", MASFilterSwitch("mod_assets/location/garden_view/deco/d25/GV_lights_off.png")
