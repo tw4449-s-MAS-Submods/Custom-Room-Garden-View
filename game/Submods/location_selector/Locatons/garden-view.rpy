@@ -4,7 +4,7 @@ init -990 python:
         author="tw4449",
         name="Custom Room Garden View",
         description="This submod adds a new room for you and Monika to spend time in.",
-        version="1.0.6"
+        version="1.0.6.1"
     )
 
 # Register the updater
@@ -15,7 +15,7 @@ init -989 python:
             user_name="tw4449-s-MAS-Submods",
             repository_name="Garden-View",
             update_dir="",
-            attachment_id=None
+            attachment_id=0
         )
 
 init 20 python in tw_room_utils:
